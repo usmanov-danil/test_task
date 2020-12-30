@@ -7,3 +7,9 @@ class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Answer
         fields = "__all__"
+
+
+class AnswerUserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Answer
+        fields = "__all__"

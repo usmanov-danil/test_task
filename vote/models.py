@@ -64,7 +64,10 @@ class Vote(models.Model):
 
 
 class CustomUser(models.Model):
-    id = models.PositiveIntegerField("id", primary_key=True)
+    id = models.AutoField(
+        "id",
+        primary_key=True,
+    )
     votes = models.ManyToManyField(
         Vote, related_name="user_votes", verbose_name="Опросы", blank=True
     )
