@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Question, Answer, Vote
+from .models import Answer, Question, Vote
 
 admin.site.site_header = "Vote Admin"
 admin.site.site_title = "Vote Admin"
