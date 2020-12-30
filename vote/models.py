@@ -56,3 +56,18 @@ class Vote(models.Model):
     def __str__(self):
         return f"{self.name} - {self.start_date}"
 
+
+class CustomUser(models.Model):
+    id = models.IntegerField("id", primary_key=True)
+    votes = models.ManyToManyField(
+        Vote, related_name="user_votes", verbose_name="Опросы", blank=True)
+    answers = models.ManyToManyField(
+        Answer, related_name="vote_answer", verbose_name="Ответы", blank=True)
+
+    class Meta:
+        verbose_name = "Пользователь"
+        verbose_name_plural = "Пользователи"
+        db_table = "custom_user"
+
+    def __str__(self):
+        return self.id
