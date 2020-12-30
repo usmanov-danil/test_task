@@ -3,7 +3,7 @@
 ## Installation
 ```
 git clone
-cd core
+cd test_task
 make up
 ```
 
