@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+  python: &python
+    container_name: vote_python
+    image: python:latest
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - "postgres"
+    ports:
+      - 8000:8000
+    environment:
+      DEBUG: "True"
+      LOCAL: "True"
+    volumes:
+      - "./:/app/"
+    restart: always
+
+  postgres:
+    container_name: vote_postgres
+    image: postgres:11.1-alpine
+    ports:
+      - 5437:5432
+    environment:
+      POSTGRES_DB: vote
+      POSTGRES_USER: vote
+      POSTGRES_PASSWORD: vote
+    volumes:
+      - "vote_db:/var/lib/postgresql/data/"
+    restart: always
+
+volumes:
+  vote_db:
