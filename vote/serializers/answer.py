@@ -6,6 +6,4 @@ from vote import models
 class AnswerSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Answer
-        fields = (
-            "__all__"
-        )
+        fields = "__all__"

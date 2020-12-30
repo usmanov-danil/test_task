@@ -11,6 +11,9 @@ __all__ = ("VoteViewSet",)
 
 class VoteViewSet(ReadOnlyModelViewSet):
     """Returns list of active votes"""
+
     serializer_class = VoteSerializer
-    queryset = models.Vote.objects.filter(start_date__lte=datetime.now(tz=pytz.timezone("Europe/Moscow")),
-                                          end_date__gte=datetime.now(tz=pytz.timezone("Europe/Moscow")))
+    queryset = models.Vote.objects.filter(
+        start_date__lte=datetime.now(tz=pytz.timezone("Europe/Moscow")),
+        end_date__gte=datetime.now(tz=pytz.timezone("Europe/Moscow")),
+    )

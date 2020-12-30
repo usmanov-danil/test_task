@@ -8,18 +8,21 @@ from django.utils.timezone import utc
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('vote', '0005_auto_20201230_1414'),
+        ("vote", "0005_auto_20201230_1414"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='vote',
-            name='end_date',
-            field=models.DateTimeField(verbose_name='Конец опроса'),
+            model_name="vote",
+            name="end_date",
+            field=models.DateTimeField(verbose_name="Конец опроса"),
         ),
         migrations.AlterField(
-            model_name='vote',
-            name='start_date',
-            field=models.DateTimeField(default=datetime.datetime(2020, 12, 30, 11, 26, 4, 184995, tzinfo=utc), verbose_name='Начало опроса'),
+            model_name="vote",
+            name="start_date",
+            field=models.DateTimeField(
+                default=datetime.datetime(2020, 12, 30, 11, 26, 4, 184995, tzinfo=utc),
+                verbose_name="Начало опроса",
+            ),
         ),
     ]

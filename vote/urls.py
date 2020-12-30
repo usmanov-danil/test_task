@@ -9,7 +9,7 @@ router.register("question", question.QuestionViewSet, basename="question")
 router.register("answer", answer.AnswerViewSet, basename="answer")
 
 router.register("get_active_votes", vote.VoteViewSet, basename="get_active_votes")
-
+# router.register("get_user_id", user.UserViewSet,basename="get_user_id")
 
 api_urls = [*router.urls]
 

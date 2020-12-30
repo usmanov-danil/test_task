@@ -7,24 +7,35 @@ import django.utils.timezone
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('vote', '0002_auto_20201230_1405'),
+        ("vote", "0002_auto_20201230_1405"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='question',
-            name='type',
-            field=models.CharField(choices=[('text', 'Ответ с текстом'), ('one_variant', 'Ответ с выбором одного варианта'), ('multiple_variants', 'Ответ с выбором несколких вариантов')], default=0, max_length=250, verbose_name='Тип вопроса'),
+            model_name="question",
+            name="type",
+            field=models.CharField(
+                choices=[
+                    ("text", "Ответ с текстом"),
+                    ("one_variant", "Ответ с выбором одного варианта"),
+                    ("multiple_variants", "Ответ с выбором несколких вариантов"),
+                ],
+                default=0,
+                max_length=250,
+                verbose_name="Тип вопроса",
+            ),
             preserve_default=False,
         ),
         migrations.AlterField(
-            model_name='vote',
-            name='end_date',
-            field=models.DateTimeField(verbose_name='Конец опросаы'),
+            model_name="vote",
+            name="end_date",
+            field=models.DateTimeField(verbose_name="Конец опросаы"),
         ),
         migrations.AlterField(
-            model_name='vote',
-            name='start_date',
-            field=models.DateTimeField(default=django.utils.timezone.now, verbose_name='Начало опроса'),
+            model_name="vote",
+            name="start_date",
+            field=models.DateTimeField(
+                default=django.utils.timezone.now, verbose_name="Начало опроса"
+            ),
         ),
     ]

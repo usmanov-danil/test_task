@@ -9,50 +9,89 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Question',
+            name="Question",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField(verbose_name='Текст вопроса')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.TextField(verbose_name="Текст вопроса")),
             ],
             options={
-                'verbose_name': 'Вопрос',
-                'verbose_name_plural': 'Вопросы',
-                'db_table': 'question',
+                "verbose_name": "Вопрос",
+                "verbose_name_plural": "Вопросы",
+                "db_table": "question",
             },
         ),
         migrations.CreateModel(
-            name='Vote',
+            name="Vote",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=128, verbose_name='Название')),
-                ('description', models.TextField(verbose_name='Описание')),
-                ('start_date', models.DateTimeField(default=django.utils.timezone.now)),
-                ('end_date', models.DateTimeField()),
-                ('questions', models.ManyToManyField(blank=True, related_name='vote_questions', to='vote.Question', verbose_name='Вопросы')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("name", models.CharField(max_length=128, verbose_name="Название")),
+                ("description", models.TextField(verbose_name="Описание")),
+                ("start_date", models.DateTimeField(default=django.utils.timezone.now)),
+                ("end_date", models.DateTimeField()),
+                (
+                    "questions",
+                    models.ManyToManyField(
+                        blank=True,
+                        related_name="vote_questions",
+                        to="vote.Question",
+                        verbose_name="Вопросы",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Опрос',
-                'verbose_name_plural': 'Опросы',
-                'db_table': 'vote',
+                "verbose_name": "Опрос",
+                "verbose_name_plural": "Опросы",
+                "db_table": "vote",
             },
         ),
         migrations.CreateModel(
-            name='Answer',
+            name="Answer",
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('text', models.TextField(verbose_name='Текст ответа')),
-                ('votes', models.IntegerField(default=0)),
-                ('type', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='answers', to='vote.Question', verbose_name='Ответы')),
+                (
+                    "id",
+                    models.AutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("text", models.TextField(verbose_name="Текст ответа")),
+                ("votes", models.IntegerField(default=0)),
+                (
+                    "type",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="answers",
+                        to="vote.Question",
+                        verbose_name="Ответы",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'Ответ',
-                'verbose_name_plural': 'Ответы',
-                'db_table': 'answer',
+                "verbose_name": "Ответ",
+                "verbose_name_plural": "Ответы",
+                "db_table": "answer",
             },
         ),
     ]
