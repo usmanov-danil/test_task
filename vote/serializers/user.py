@@ -22,7 +22,7 @@ class UserVotesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.CustomUser
-        fields = ("id", "votes", "answers")
+        fields = ("id", "votes",)
 
     @swagger_serializer_method(serializer_or_field=vote.VoteUserSerializer(many=True))
     def get_votes(self, obj):

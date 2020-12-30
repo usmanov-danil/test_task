@@ -30,7 +30,6 @@ class UserSubmissionViewSet(
 class UserVotesViewSet(
     GenericViewSet,
     mixins.ListModelMixin,
-    mixins.UpdateModelMixin,
     mixins.RetrieveModelMixin,
 ):
     """Returns votes, questions and answer in which user participated"""
