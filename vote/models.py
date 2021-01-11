@@ -7,7 +7,6 @@ from django.db import models
 
 class Answer(models.Model):
     text = models.TextField("Текст ответа", blank=False, null=False)
-    votes = models.IntegerField("Колличество проголосовавших", default=0)
 
     class Meta:
         verbose_name = "Ответ"
